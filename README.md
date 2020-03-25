@@ -23,13 +23,29 @@ Also, with sample arguments:
 ```
 sbt "runMain tech.pragmarad.tcom.client.TcpAkkaStreamClientApp --srvhost localhost --srvport 1661 --message tst1 --frequencymsecs 1000 --maxburstcount 10"
 ```
-Flexibility of input parameters allows creating different test cases for TCP akk streaming.
+Flexibility of input parameters allows creating different test cases for TCP akka streaming.
 
 
 ## Test
 For unit testing usual junit can be used:
 ```
 sbt test
+```
+
+## Publish
+In order to publish in local repo you can use:
+```
+sbt publishLocal
+```
+To publish into  [bintray repo](https://bintray.com/pragmarad-tech/tcom-scala-akka/tcom-tier-cli-akka), use:
+```
+sbt publish
+```
+
+## Release
+In order to release new version use:
+```
+sbt release
 ```
 
 ## Logging
@@ -39,6 +55,7 @@ SLF4J with logback impl used.
 
 ## Status
 * 2020-03-07 - 0.0.1-SNAPSHOT - Init.
+* 2020-03-25 - 0.1.0 - Args handling added.
 
 # Roadmap
 1. (DONE) Add basic TCP client with untyped actors use.
