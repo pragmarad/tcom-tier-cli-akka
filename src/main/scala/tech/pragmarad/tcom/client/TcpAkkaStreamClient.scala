@@ -49,7 +49,7 @@ class TcpAkkaStreamClient(host: String, port: Int, actorSysName: String) {
 
     // - Sink:
     val localDataSink = Sink.foreach[ByteString](
-          data =>  logger.info("For message '{}' received response: '{}'.", message, data))
+          data =>  logger.debug("For message '{}' received response: '{}'.", message, data))
 
     // - Run flow:
     localDataSource.via(clientFlow).to(localDataSink).run

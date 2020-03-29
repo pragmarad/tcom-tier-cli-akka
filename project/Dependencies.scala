@@ -8,7 +8,7 @@ object Dependencies {
   // Project related libs:
   object Prj {
     val tcomProjectGroup = "tech.pragmarad.tcom"
-    val tcomCommonsVersion = "0.1.0"
+    val tcomCommonsVersion = "0.1.1"
     val tcomCommons = tcomProjectGroup %% "tcom-crosscut-commons-akka" % tcomCommonsVersion
     val prjDependencies: Seq[ModuleID] = Seq(tcomCommons)
   }

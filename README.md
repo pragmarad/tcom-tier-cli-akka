@@ -48,14 +48,21 @@ In order to release new version use:
 sbt release
 ```
 
+## Usage
+### Config loading
+Since commons version 0.1.1 you can use **-Dtcom.conf.file=other_tcom.conf** to provide with own config file name. 
+By default, **application.tcom.conf** will be used (along with system properties).
+
 ## Logging
-SLF4J with logback impl used.
+SLF4J with logback impl used. If you need to provide with custom log file (can be handy for different env-s), you can use 
+system property in form of **-Dlogback.configurationFile=/path/to/custom_logback_config.xml**.
 
 # Links
 
 ## Status
 * 2020-03-07 - 0.0.1-SNAPSHOT - Init.
 * 2020-03-25 - 0.1.0 - Args handling added.
+* 2020-03-29 - 0.1.1 - commons version 0.1.1 set (with tcom.conf.file property support).
 
 # Roadmap
 1. (DONE) Add basic TCP client with untyped actors use.
