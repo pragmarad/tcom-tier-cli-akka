@@ -3,6 +3,9 @@
 
 import Dependencies._
 import sbt.Keys.name
+//import sbtassembly.AssemblyPlugin.defaultUniversalScript
+import sbtassembly.AssemblyPlugin.defaultShellScript
+
 
 name := """tcom-tier-cli-akka"""
 
@@ -137,7 +140,20 @@ libraryDependencies in Global ++= Tst.testDependencies
 
 //---------
 // Module aggregator:
-lazy val root = (project in file(".")).settings(commonSettings: _*)
+lazy val root = (project in file("."))
+	.settings(commonSettings: _*)
+	.settings(
+		mainClass in assembly := Some("tech.pragmarad.tcom.client.TcpAkkaStreamClientApp"),
+		// Adding SHA-1:
+		//assemblyOption in assembly := (assemblyOption in assembly).value.copy(appendContentHash = true),
+		// Prepending with shell script:
+		assemblyOption in assembly := (assemblyOption in assembly).value.copy(prependShellScript = Some(defaultShellScript))
+		// - OR: 
+		//assemblyOption in assembly := (assemblyOption in assembly).value.copy(prependShellScript = Some(defaultShellScript)),
+        //assemblyJarName in assembly := s"${name.value}-${version.value}"
+    )
+
+
 //---------
 
 // Init:

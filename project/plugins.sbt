@@ -20,3 +20,6 @@ You should also have a program named gpg-agent running in the background.
 $ ps aux | grep gpg
 */
 addSbtPlugin("com.jsuereth" % "sbt-pgp" % "2.0.0")
+
+// See https://github.com/sbt/sbt-assembly
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")
